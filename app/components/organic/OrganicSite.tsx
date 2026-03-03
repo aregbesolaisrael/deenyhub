@@ -1,195 +1,320 @@
 import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const CheckIcon = () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#044b3c" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="mr-3 mt-0.5 shrink-0">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="mr-2.5 mt-0.5 shrink-0 text-[#1dc15d]">
         <polyline points="20 6 9 17 4 12"></polyline>
     </svg>
 );
+
+const ArrowIcon = () => (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+);
+
+const productCategories = [
+    {
+        id: 'garri',
+        title: 'Garri',
+        subtitle: 'Premium quality, hygienically processed',
+        accent: '#fef3c7',
+        accentDark: '#92400e',
+        items: [
+            'White Garri (Fine)',
+            'Yellow Garri (Fortified)',
+            'Ijebu Garri (Extra Dry)',
+            'Export-Grade Garri'
+        ],
+        img: 'https://plus.unsplash.com/premium_photo-1664392163836-0129faa6d5f6?q=80&w=800&auto=format&fit=crop',
+        imgAlt: 'Premium garri grains',
+    },
+    {
+        id: 'other-grains',
+        title: 'Other Grains',
+        subtitle: 'Nutritious, carefully sourced, export-ready',
+        accent: '#d1fae5',
+        accentDark: '#065f46',
+        items: [
+            'Brown Rice',
+            'Millet',
+            'Sorghum',
+            'Maize (Corn)'
+        ],
+        img: 'https://images.unsplash.com/photo-1754294437681-4ec491072dfc?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0',
+        imgAlt: 'Assorted whole grains',
+    },
+];
+const whyData = [
+    {
+        icon: (
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z" /><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+            </svg>
+        ),
+        title: 'Healthier & Pure',
+        desc: 'No synthetic chemicals. All-natural products sourced directly from certified organic farms.',
+        accent: '#d1fae5',
+        color: '#065f46',
+    },
+    {
+        icon: (
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+        ),
+        title: 'Sustainable & Eco-Friendly',
+        desc: 'Supports earth-friendly farming practices that protect the environment for future generations.',
+        accent: '#fef3c7',
+        color: '#92400e',
+    },
+    {
+        icon: (
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+        ),
+        title: 'Global Reach',
+        desc: 'Exported to 15+ countries across Europe, Asia, North America and the Middle East.',
+        accent: '#dbeafe',
+        color: '#1e40af',
+    },
+    {
+        icon: (
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle>
+            </svg>
+        ),
+        title: 'Reliable Logistics',
+        desc: 'On-time delivery guaranteed through our trusted international freight and customs network.',
+        accent: '#ede9fe',
+        color: '#5b21b6',
+    },
+];
 
 export default function OrganicSite() {
     return (
         <div className="w-full flex flex-col font-sans">
 
             {/* 1. HERO SECTION */}
-            <section className="relative w-full min-h-[550px] lg:min-h-[650px] border-b-2 border-black overflow-hidden flex items-center">
+            <section className="relative w-full min-h-[580px] lg:min-h-[680px] border-b-2 border-black overflow-hidden flex items-center">
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
-                    <img
+                    <Image
                         src="https://plus.unsplash.com/premium_photo-1726750862897-4b75116bca34?q=80&w=2067&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         alt="Organic farming hands"
-                        className="w-full h-full object-cover object-center"
+                        fill
+                        priority
+                        sizes="100vw"
+                        className="object-cover object-center"
                     />
-                    {/* Green Overlay to match Deeny Global Hub dark brand color roughly */}
-                    <div className="absolute inset-0 bg-[#044b3c]/60 mix-blend-multiply"></div>
-                    <div className="absolute inset-0 bg-black/30"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#022d25]/90 via-[#044b3c]/70 to-[#044b3c]/20"></div>
                 </div>
 
-                <div className="relative z-10 max-w-[1240px] mx-auto px-6 lg:px-12 w-full pt-10">
-                    <h1 className="text-white text-[44px] md:text-[56px] lg:text-[72px] leading-[1.05] tracking-tight mb-6 max-w-[700px] font-extrabold">
-                        Your Partner in Organic Agricultural Commodities
+                <div className="relative z-10 max-w-[1240px] mx-auto px-6 lg:px-12 w-full pt-12 pb-16">
+                    {/* Eyebrow */}
+                    <div className="inline-flex items-center gap-2 bg-[#1dc15d]/20 border border-[#1dc15d]/40 text-[#1dc15d] text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-full mb-6">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#1dc15d]"></span>
+                        Trusted Organic Exporter
+                    </div>
+
+                    <h1 className="text-white text-[44px] md:text-[58px] lg:text-[74px] leading-[1.02] tracking-tight mb-6 max-w-[720px] font-extrabold">
+                        Your Partner in<br />
+                        <span className="text-[#1dc15d]">Organic Agricultural</span><br />
+                        Commodities
                     </h1>
-                    <p className="text-[#f4f2e9] text-[18px] md:text-[20px] leading-relaxed mb-10 max-w-[500px] font-medium opacity-90">
-                        Providing high-quality organic products and essential supplies worldwide.
+                    <p className="text-[#c8e6df] text-[17px] md:text-[19px] leading-relaxed mb-10 max-w-[500px]">
+                        Providing high-quality organic products and essential supplies worldwide — with integrity, traceability, and care.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4">
-                        <button className="bg-[#1dc15d] hover:bg-[#169c4b] text-white px-8 py-4 rounded-md text-[17px] font-bold transition-all text-center">
+                        <a href='/products' className="bg-[#1dc15d] hover:bg-[#169c4b] text-white px-8 py-4 rounded-lg text-[16px] font-bold transition-all text-center shadow-lg hover:shadow-[#1dc15d]/30">
                             Explore Products
-                        </button>
-                        <button className="bg-transparent border-[1.5px] border-white text-white hover:bg-white hover:text-[#044b3c] px-8 py-4 rounded-md text-[17px] font-bold transition-all text-center shadow-sm">
+                        </a>
+                        <a href='/contact' className="bg-white/10 border border-white/30 text-white hover:bg-white hover:text-[#044b3c] px-8 py-4 rounded-lg text-[16px] font-bold transition-all text-center backdrop-blur-sm">
                             Contact Us
-                        </button>
+                        </a>
+                    </div>
+
+                    {/* Stats */}
+                    <div className="flex flex-wrap gap-8 mt-14 pt-10 border-t border-white/10">
+                        {[
+                            { value: '12+', label: 'Products' },
+                            { value: '15+', label: 'Countries Served' },
+                            { value: '100%', label: 'Quality Certified' },
+                        ].map(stat => (
+                            <div key={stat.label} className="flex flex-col">
+                                <span className="text-white text-[28px] font-extrabold leading-none">{stat.value}</span>
+                                <span className="text-[#86c9b9] text-[11px] font-bold tracking-[0.12em] uppercase mt-1">{stat.label}</span>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
 
             {/* 2. OUR PRODUCTS SECTION */}
-            <section className="w-full bg-[#f4f2e9] border-b-2 border-black py-20 lg:py-28 px-6 lg:px-12">
+            <section className="w-full bg-[#f8f7f2] border-b-2 border-black py-20 lg:py-28 px-6 lg:px-12">
                 <div className="max-w-[1240px] mx-auto">
                     {/* Section Header */}
-                    <div className="flex flex-col items-center mb-16 text-center relative w-full">
-                        <div className="hidden sm:block absolute top-1/2 left-0 w-[20%] lg:w-[35%] h-[2px] bg-[#e3decf] -translate-y-1/2"></div>
-                        <h2 className="text-[#044b3c] text-[32px] md:text-[40px] font-extrabold tracking-tight px-6 lg:px-10 bg-[#f4f2e9] relative z-10 w-max mx-auto">
-                            Our Products
+                    <div className="flex flex-col items-center mb-4 text-center">
+                        <div className="inline-flex items-center gap-2 bg-[#f0fdf4] border border-[#bbf7d0] text-[#065f46] text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-full mb-4">
+                            What We Offer
+                        </div>
+                        <h2 className="text-[#0f172a] text-[30px] md:text-[40px] font-extrabold tracking-tight">
+                            Our <span className="text-[#044b3c]">Products</span>
                         </h2>
-                        <div className="hidden sm:block absolute top-1/2 right-0 w-[20%] lg:w-[35%] h-[2px] bg-[#e3decf] -translate-y-1/2"></div>
+                        <p className="text-[#64748b] text-[15px] mt-3 max-w-[500px] leading-relaxed">
+                            From organic agricultural commodities to essential agri-business supplies — all sourced with care.
+                        </p>
                     </div>
 
-                    {/* Cards Grid */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-
-                        {/* Card 1 */}
-                        <div className="bg-[#fbfbfb] border-2 border-black p-8 md:p-10 flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
-                            <h3 className="text-[#044b3c] text-[24px] md:text-[28px] font-extrabold tracking-tight mb-8">
-                                General Essential Supplies
-                            </h3>
-                            {/* Card Images */}
-                            <div className="grid grid-cols-2 gap-3 mb-8">
-                                <div className="h-[140px] bg-gray-200 border border-black overflow-hidden relative">
-                                    <img src="https://plus.unsplash.com/premium_photo-1725467479101-556af13a7220?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Garri" className="w-full h-full object-cover" />
+                    {/* Category cards */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+                        {productCategories.map((cat) => (
+                            <div
+                                key={cat.id}
+                                className="bg-white border border-[#e2e8f0] rounded-xl overflow-hidden flex flex-col hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300 shadow-sm"
+                            >
+                                {/* Image */}
+                                <div className="relative h-[180px] overflow-hidden">
+                                    <Image
+                                        src={cat.img}
+                                        alt={cat.imgAlt}
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                                    {/* Category badge */}
+                                    <div
+                                        className="absolute top-3 left-3 text-[10px] font-bold tracking-[0.12em] uppercase px-2.5 py-1 rounded-full"
+                                        style={{ backgroundColor: cat.accent, color: cat.accentDark }}
+                                    >
+                                        {cat.subtitle}
+                                    </div>
                                 </div>
-                                <div className="h-[140px] bg-gray-200 border border-black overflow-hidden relative">
-                                    <img src="https://images.unsplash.com/photo-1536153635972-1fc2e818f642?q=80&w=986&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Grains" className="w-full h-full object-cover" />
+
+                                {/* Content */}
+                                <div className="p-6 flex flex-col flex-grow">
+                                    <h3 className="text-[#0f172a] text-[18px] font-extrabold tracking-tight mb-4">
+                                        {cat.title}
+                                    </h3>
+
+                                    {/* Item list */}
+                                    <ul className="flex flex-col gap-2 mb-6 flex-grow">
+                                        {cat.items.map(item => (
+                                            <li key={item} className="flex items-center text-[#475569] text-[13px] font-semibold">
+                                                <CheckIcon />
+                                                {item}
+                                            </li>
+                                        ))}
+                                    </ul>
+
+                                    <Link
+                                        href="/products"
+                                        className="inline-flex items-center gap-2 text-[#044b3c] font-bold text-[13px] hover:gap-3 transition-all"
+                                    >
+                                        View all {cat.title}
+                                        <ArrowIcon />
+                                    </Link>
                                 </div>
                             </div>
-                            {/* Checklist */}
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10 flex-grow">
-                                <div className="flex items-start text-[#3b5249] font-bold text-[15px]"><CheckIcon /> Garri</div>
-                                <div className="flex items-start text-[#3b5249] font-bold text-[15px]"><CheckIcon /> Chemical free</div>
-                                <div className="flex items-start text-[#3b5249] font-bold text-[15px]"><CheckIcon /> Organic</div>
-                                <div className="flex items-start text-[#3b5249] font-bold text-[15px]"><CheckIcon /> Spices</div>
-                                <div className="flex items-start text-[#3b5249] font-bold text-[15px]"><CheckIcon /> Herbs</div>
-                                <div className="flex items-start text-[#3b5249] font-bold text-[15px]"><CheckIcon /> Fruits/Vegetables</div>
-                            </div>
-                            {/* Button */}
-                            <a 
-                                href="https://api.whatsapp.com/send/?phone=2348033363741&text=Hello%21+I%27d+like+to+order+Garri.&type=phone_number&app_absent=0"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="bg-[#044b3c] hover:bg-[#033a2e] text-white px-8 py-3.5 rounded-md text-[16px] font-bold transition-all w-max self-start border border-black shadow-sm"
-                                >
-                                Contact Us
-                            </a>
-                        </div>
+                        ))}
+                    </div>
 
+                    {/* CTA link */}
+                    <div className="flex justify-center mt-10">
+                        <a
+                            href="/products"
+                            className="inline-flex items-center gap-2 bg-[#044b3c] hover:bg-[#033a2e] text-white px-8 py-4 rounded-lg text-[15px] font-bold transition-all shadow-md"
+                        >
+                            Browse Full Catalogue
+                            <ArrowIcon />
+                        </a>
                     </div>
                 </div>
             </section>
 
             {/* 3. WHY CHOOSE ORGANIC SECTION */}
-            <section className="w-full bg-[#fbfbfb] border-b-2 border-black py-16 lg:py-24 px-6 lg:px-12">
-                <div className="max-w-[1240px] mx-auto flex flex-col items-center">
-                    <h2 className="text-[#044b3c] text-[32px] md:text-[36px] font-extrabold tracking-tight mb-12 lg:mb-16 text-center">
-                        Why Choose Organic?
-                    </h2>
-
-                    <div className="flex flex-col md:flex-row gap-10 md:gap-24 items-center justify-center">
-                        {/* Feature 1 */}
-                        <div className="flex items-center gap-5 max-w-[400px]">
-                            <div className="w-[72px] h-[72px] lg:w-20 lg:h-20 rounded-full border-2 border-black flex items-center justify-center shrink-0 bg-[#f4f2e9] shadow-[2px_2px_0_#044b3c]">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#044b3c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
-                                    <path d="M3 3v5h5"></path>
-                                </svg>
-                            </div>
-                            <div className="flex flex-col">
-                                <h4 className="text-[#044b3c] font-extrabold text-[18px] lg:text-[19px] mb-1">Healthier & Pure -</h4>
-                                <p className="text-[#64748b] text-[14px]">No chemicals, all-natural products</p>
-                            </div>
+            <section className="w-full bg-white border-b-2 border-black py-16 lg:py-24 px-6 lg:px-12">
+                <div className="max-w-[1240px] mx-auto">
+                    <div className="text-center mb-14">
+                        <div className="inline-flex items-center gap-2 bg-[#f0fdf4] border border-[#bbf7d0] text-[#065f46] text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-full mb-4">
+                            Our Advantages
                         </div>
-
-                        {/* Feature 2 */}
-                        <div className="flex items-center gap-5 max-w-[400px]">
-                            <div className="w-[72px] h-[72px] lg:w-20 lg:h-20 rounded-full border-2 border-black flex items-center justify-center shrink-0 bg-[#f4f2e9] shadow-[2px_2px_0_#044b3c]">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#044b3c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                </svg>
-                            </div>
-                            <div className="flex flex-col">
-                                <h4 className="text-[#044b3c] font-extrabold text-[18px] lg:text-[19px] mb-1">Sustainable & Eco-Friendly</h4>
-                                <p className="text-[#64748b] text-[14px]">Supports earth-friendly farming practices</p>
-                            </div>
-                        </div>
+                        <h2 className="text-[#0f172a] text-[28px] md:text-[36px] font-extrabold tracking-tight">
+                            Why Choose <span className="text-[#044b3c]">Organic?</span>
+                        </h2>
+                        <p className="text-[#64748b] text-[15px] mt-3 max-w-[460px] mx-auto leading-relaxed">
+                            Organic products are better for your health, better for the planet, and better for business.
+                        </p>
                     </div>
-                </div>
-            </section>
 
-            {/* 4. FEATURED COMMODITIES */}
-            {/* <section className="w-full bg-[#f4f2e9] border-b-2 border-black py-20 lg:py-28 px-6 lg:px-12 relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10 pointer-events-none mix-blend-multiply">
-                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=2871&auto=format&fit=crop" className="w-full h-full object-cover" alt="texture" />
-                </div>
-
-                <div className="max-w-[1240px] mx-auto relative z-10">
-                    <h2 className="text-[#044b3c] text-[32px] md:text-[36px] font-extrabold tracking-tight mb-12 text-center lg:text-left flex items-center justify-center lg:justify-start gap-6">
-                        Featured Organic Commodities
-                        <div className="hidden lg:block h-[2px] bg-[#e3decf] flex-grow mt-2"></div>
-                    </h2>
-
-                    <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5">
-                        {[
-                            { name: "Desiccated Coconut", img: "https://images.unsplash.com/photo-1627993073747-d1a8c9b2d3dd?q=80&w=2940&auto=format&fit=crop" },
-                            { name: "Cashew Nuts", img: "https://images.unsplash.com/photo-1616260273010-388f614457fb?q=80&w=2834&auto=format&fit=crop" },
-                            { name: "Control Facilities", img: "https://images.unsplash.com/photo-1606132626920-ab6eaffd454a?q=80&w=2940&auto=format&fit=crop" },
-                            { name: "Hibiscus", img: "https://images.unsplash.com/photo-1615486511484-92e1720dbe46?q=80&w=2800&auto=format&fit=crop" },
-                            { name: "Logistics", img: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=2944&auto=format&fit=crop" }
-                        ].map((item, index) => (
-                            <div key={index} className="flex flex-col border-2 border-black bg-white group hover:-translate-y-1 transition-transform cursor-pointer shadow-sm">
-                                <div className="h-[160px] lg:h-[180px] w-full border-b-2 border-black bg-gray-200 overflow-hidden relative">
-                                    <img src={item.img} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {whyData.map((item) => (
+                            <div
+                                key={item.title}
+                                className="flex flex-col gap-4 p-6 rounded-xl border border-[#e2e8f0] bg-[#fafafa] hover:shadow-md transition-shadow duration-300"
+                            >
+                                <div
+                                    className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
+                                    style={{ backgroundColor: item.accent, color: item.color }}
+                                >
+                                    {item.icon}
                                 </div>
-                                <div className="p-3 lg:p-4 flex items-center justify-center text-center h-[60px] lg:h-[70px]">
-                                    <h4 className="text-[#044b3c] font-bold text-[13px] lg:text-[14px] tracking-tight">{item.name}</h4>
+                                <div>
+                                    <h4 className="text-[#0f172a] font-extrabold text-[15px] mb-2">{item.title}</h4>
+                                    <p className="text-[#64748b] text-[13px] leading-relaxed">{item.desc}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
-            </section> */}
+            </section>
 
-            {/* 5. RELIABLE GLOBAL SUPPLY */}
-            <section className="relative w-full min-h-[450px] lg:min-h-[500px] bg-black overflow-hidden flex items-center">
+            {/* 4. RELIABLE GLOBAL SUPPLY */}
+            <section className="relative w-full min-h-[440px] lg:min-h-[500px] overflow-hidden flex items-center">
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
-                    <img
+                    <Image
                         src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?q=80&w=2944&auto=format&fit=crop"
                         alt="Trucks logistics"
-                        className="w-full h-full object-cover object-center"
+                        fill
+                        sizes="100vw"
+                        className="object-cover object-center"
                     />
-                    {/* Dark green overlay to match branding */}
-                    <div className="absolute inset-0 bg-[#044b3c]/70 mix-blend-multiply"></div>
-                    <div className="absolute inset-0 bg-black/40"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#022d25]/95 via-[#044b3c]/85 to-[#044b3c]/40"></div>
                 </div>
 
-                <div className="relative z-10 max-w-[1240px] mx-auto px-6 lg:px-12 w-full pt-10 pb-10">
-                    <h2 className="text-white text-[32px] md:text-[44px] lg:text-[50px] leading-[1.1] tracking-tight mb-6 max-w-[650px] font-extrabold">
-                        Reliable Global Supply & Distribution
-                    </h2>
-                    <p className="text-[#f4f2e9] text-[16px] md:text-[18px] leading-relaxed mb-10 max-w-[500px] font-medium opacity-90">
-                        We deliver seamlessly with a robust logistic network ensuring secure and timely delivery worldwide.
-                    </p>
-                    <button className="bg-transparent border-[1.5px] border-white text-white hover:bg-white hover:text-[#044b3c] px-8 py-3.5 rounded-md text-[16px] font-bold transition-all text-center">
-                        Request a Quote
-                    </button>
+                <div className="relative z-10 max-w-[1240px] mx-auto px-6 lg:px-12 w-full py-16 flex flex-col md:flex-row items-center justify-between gap-10">
+                    <div className="max-w-[560px]">
+                        <div className="inline-flex items-center gap-2 bg-[#1dc15d]/20 border border-[#1dc15d]/40 text-[#1dc15d] text-[11px] font-bold tracking-[0.15em] uppercase px-3 py-1.5 rounded-full mb-5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#1dc15d]"></span>
+                            Worldwide Distribution
+                        </div>
+                        <h2 className="text-white text-[30px] md:text-[44px] lg:text-[52px] leading-[1.05] tracking-tight mb-5 font-extrabold">
+                            Reliable Global Supply<br />& Distribution
+                        </h2>
+                        <p className="text-[#a7d8cc] text-[15px] md:text-[17px] leading-relaxed">
+                            We deliver seamlessly with a robust logistics network ensuring secure and timely delivery to 15+ countries worldwide.
+                        </p>
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-4 shrink-0">
+                        <a
+                            href="/contact"
+                            className="bg-[#1dc15d] hover:bg-[#169c4b] text-white px-8 py-4 rounded-lg text-[15px] font-bold transition-all text-center shadow-lg hover:shadow-[#1dc15d]/30"
+                        >
+                            Request a Quote
+                        </a>
+                        <a
+                            href="/products"
+                            className="bg-white/10 border border-white/30 text-white hover:bg-white hover:text-[#044b3c] px-8 py-4 rounded-lg text-[15px] font-bold transition-all text-center backdrop-blur-sm"
+                        >
+                            Browse Products
+                        </a>
+                    </div>
                 </div>
             </section>
 

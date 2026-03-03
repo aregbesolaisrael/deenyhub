@@ -47,12 +47,23 @@ const logos = [
 // ─── FAQ data ────────────────────────────────────────────────────────────────
 
 const faqs = [
-    { q: "What types of organic agricultural commodities do you supply?", a: "We supply a wide range of certified organic commodities including desiccated coconut, cashew nuts, sesame seeds, hibiscus, ginger, and various organic grains, spices, and herbs sourced directly from trusted farms." },
-    { q: "Do you handle international shipping and export documentation?", a: "Yes, we handle end-to-end logistics including export documentation, phytosanitary certificates, and customs clearance. We have established partnerships with reliable freight forwarders worldwide." },
-    { q: "What certifications do your products carry?", a: "Our products carry internationally recognised certifications including USDA Organic, EU Organic, and where applicable, Fairtrade and Rainforest Alliance certifications." },
-    { q: "What is your minimum order quantity for bulk commodities?", a: "Minimum order quantities vary by product. For most commodities, we start from 1 metric tonne. For general supplies such as packaging materials and chemicals, MOQs are product-specific. Contact us for a detailed quote." },
+  { 
+    q: "What is your main product?", 
+    a: "Our primary product is high-quality Garri, carefully processed and sourced directly from trusted farms to ensure freshness, consistency, and premium quality." 
+  },
+  { 
+    q: "What types of agricultural commodities do you supply?", 
+    a: "In addition to Garri, we supply a wide range of agricultural commodities including desiccated coconut, cashew nuts, sesame seeds, hibiscus, ginger, and various grains, spices, and herbs sourced directly from reliable producers." 
+  },
+  { 
+    q: "Do you handle international shipping and export documentation?", 
+    a: "Yes, we handle end-to-end logistics including export documentation, phytosanitary certificates, and customs clearance. We have established partnerships with reliable freight forwarders worldwide." 
+  },
+  { 
+    q: "What is your minimum order quantity (MOQ)?", 
+    a: "Minimum order quantities are product-specific. Please contact us via WhatsApp or through the contact form for detailed information, and our team will get back to you promptly." 
+  },
 ];
-
 // ─── Field error helper ──────────────────────────────────────────────────────
 
 function FieldError({ messages }: { messages?: string[] }) {
@@ -125,7 +136,7 @@ export default function ContactPage() {
                 <div className="text-center mb-10">
                     <h2 className="text-[#044b3c] text-[40px] md:text-[48px] font-extrabold tracking-tight mb-4">Get in touch</h2>
                     <p className="text-[#4b5563] text-[16px] md:text-[18px] max-w-[650px] mx-auto leading-relaxed">
-                        Whether you have inquiries about our organic commodities or want to explore partnership opportunities, we're here to hear from you.
+                        Whether you have inquiries about our organic commodities or want to explore partnership opportunities, we're here to hear from you. <br /> Fill the form or text on WhatsApp
                     </p>
                 </div>
 
