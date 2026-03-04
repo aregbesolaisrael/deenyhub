@@ -11,8 +11,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "DennyGlobalHub — Organic Agricultural Commodities & Global Supplies",
-  description: "DennyGlobalHub is your trusted partner for organic agricultural commodities, foodstuffs, general supplies, and natural products for sale worldwide.",
+  title: "DeenyGlobalHub — Organic Agricultural Commodities & Global Supplies",
+  description: "DeenyGlobalHub is your trusted partner for organic agricultural commodities, foodstuffs, general supplies, and natural products for sale worldwide.",
 };
 
 export default function RootLayout({

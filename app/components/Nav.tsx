@@ -50,13 +50,13 @@ export default function Nav() {
                     <a href="/" className="flex items-center gap-2 cursor-pointer">
                         <Image
                             src={logoSrc}
-                            alt="DennyGlobalHub logo"
+                            alt="DeenyGlobalHub logo"
                             width={40}
                             height={50}
                             priority
                             className="object-contain"
                         />
-                        <span className="text-[#044b3c] text-[26px] leading-[1] font-extrabold tracking-tight">DennyGlobalHub</span>
+                        <span className="text-[#044b3c] text-[26px] leading-[1] font-extrabold tracking-tight">DeenyGlobalHub</span>
                     </a>
 
                     {/* Desktop Links */}

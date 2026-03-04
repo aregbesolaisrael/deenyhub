@@ -314,7 +314,7 @@ export default function ProductsPage() {
                             Our Commitment
                         </div>
                         <h2 className="text-[#0f172a] text-[28px] md:text-[36px] font-extrabold tracking-tight">
-                            Why Choose <span className="text-[#044b3c]">DennyGlobalHub?</span>
+                            Why Choose <span className="text-[#044b3c]">DeenyGlobalHub?</span>
                         </h2>
                         <p className="text-[#64748b] text-[15px] mt-3 max-w-[480px] mx-auto leading-relaxed">
                             We combine deep agricultural expertise with a global network to deliver excellence, every time.

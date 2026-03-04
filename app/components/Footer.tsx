@@ -45,15 +45,15 @@ export default function Footer() {
                         <div className="flex items-center gap-2 mb-5 md:mb-6">
                             <Image
                                 src={logoSrc}
-                                alt="DennyGlobalHub logo"
+                                alt="DeenyGlobalHub logo"
                                 width={36}
                                 height={45}
                                 className="object-contain"
                             />
-                            <span className="text-[#044b3c] text-[24px] leading-[1] font-extrabold tracking-tight">DennyGlobalHub</span>
+                            <span className="text-[#044b3c] text-[24px] leading-[1] font-extrabold tracking-tight">DeenyGlobalHub</span>
                         </div>
                         <p className="text-[#4b5563] text-[15px] md:text-[16px] leading-[1.65] mb-6 md:mb-0 max-w-[320px]">
-                            At DennyGlobalHub, we connect the world with premium organic agricultural commodities, foodstuffs, and essential general supplies.
+                            At DeenyGlobalHub, we connect the world with premium organic agricultural commodities, foodstuffs, and essential general supplies.
                         </p>
                         {/* Mobile Socials */}
                         <SocialIcons className="md:hidden mt-2 mb-2" />
@@ -96,7 +96,7 @@ export default function Footer() {
                 {/* Bottom Section */}
                 <div className="pt-6 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-[#64748b] text-[13px] md:text-[14px] text-center md:text-left">
-                        Copyright &copy; 2025 <span className="font-bold text-[#334155]">DennyGlobalHub</span>. All rights reserved.
+                        Copyright &copy; 2025 <span className="font-bold text-[#334155]">DeenyGlobalHub</span>. All rights reserved.
                     </p>
 
                     {/* Desktop Socials */}
